@@ -1,0 +1,17 @@
+import requests
+
+data = requests.get('https://restcountries.com/v3.1/all')
+
+if data.status_code == 200:
+
+datas = data.json()
+
+for data in datas:
+
+name = data['name']['common']
+
+currencies = data['currencies']
+
+print(f"{name} : {currencies}")
+
+else: print("Error") 
